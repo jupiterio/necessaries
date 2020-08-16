@@ -13,12 +13,12 @@ import io.github.jupiterio.necessaries.warp.WarpListComponent;
 import io.github.jupiterio.necessaries.warp.BaseWarpListComponent;
 import io.github.jupiterio.necessaries.warp.SelfWarpsComponent;
 import io.github.jupiterio.necessaries.warp.BaseSelfWarpsComponent;
-import dev.onyxstudios.cca.api.v3.component.chunk.ChunkComponentFactoryRegistry;
-import dev.onyxstudios.cca.api.v3.component.chunk.ChunkComponentInitializer;
-import dev.onyxstudios.cca.api.v3.component.level.LevelComponentFactoryRegistry;
-import dev.onyxstudios.cca.api.v3.component.level.LevelComponentInitializer;
-import dev.onyxstudios.cca.api.v3.component.entity.EntityComponentFactoryRegistry;
-import dev.onyxstudios.cca.api.v3.component.entity.EntityComponentInitializer;
+import dev.onyxstudios.cca.api.v3.chunk.ChunkComponentFactoryRegistry;
+import dev.onyxstudios.cca.api.v3.chunk.ChunkComponentInitializer;
+import dev.onyxstudios.cca.api.v3.level.LevelComponentFactoryRegistry;
+import dev.onyxstudios.cca.api.v3.level.LevelComponentInitializer;
+import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
+import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import nerdhub.cardinal.components.api.util.EntityComponents;
 import nerdhub.cardinal.components.api.util.RespawnCopyStrategy;
 

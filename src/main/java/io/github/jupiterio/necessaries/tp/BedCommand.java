@@ -6,7 +6,6 @@ import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.command.arguments.EntityArgumentType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import java.util.UUID;
 import io.github.jupiterio.necessaries.builder.TextBuilder;
@@ -43,16 +42,18 @@ public class BedCommand {
 
         BlockPos blockPos = player.getSpawnPointPosition();
         RegistryKey<World> dimension = player.getSpawnPointDimension();
+        float realAngle = player.getSpawnAngle();
+        float angle = Direction.fromRotation(realAngle).asRotation();
 
         if (blockPos != null && dimension != null) {
             ServerWorld world = source.getMinecraftServer().getWorld(dimension);
 
             Vec3d pos;
             try {
-                pos = (Vec3d)PlayerEntity.findRespawnPosition(world, blockPos, player.isSpawnPointSet(), true).get();
-                player.teleport(world, pos.getX(), pos.getY(), pos.getZ(), 0, 0);
+                pos = (Vec3d)PlayerEntity.findRespawnPosition(world, blockPos, realAngle, player.isSpawnPointSet(), true).get();
+                player.teleport(world, pos.getX(), pos.getY(), pos.getZ(), angle, 0);
             } catch(Exception e) {
-                player.teleport(world, blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5, 0, 0);
+                player.teleport(world, blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5, angle, 0);
             }
 
             source.sendFeedback(TextBuilder.builder()

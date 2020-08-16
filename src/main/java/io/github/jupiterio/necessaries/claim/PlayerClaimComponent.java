@@ -5,7 +5,7 @@ import nerdhub.cardinal.components.api.ComponentType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.WorldChunk;
-import dev.onyxstudios.cca.api.v3.util.PlayerComponent;
+import dev.onyxstudios.cca.api.v3.entity.PlayerComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import java.util.List;
 

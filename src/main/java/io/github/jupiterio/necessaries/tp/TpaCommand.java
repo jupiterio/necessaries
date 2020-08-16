@@ -1,16 +1,17 @@
 package io.github.jupiterio.necessaries.tp;
 
 import com.mojang.brigadier.CommandDispatcher;
+import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.ServerCommandSource;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.command.arguments.EntityArgumentType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import java.util.UUID;
 import io.github.jupiterio.necessaries.builder.TextBuilder;
+import io.github.jupiterio.necessaries.tp.TeleportManager.TeleportType;
 import net.minecraft.text.TranslatableText;
 
 import static net.minecraft.server.command.CommandManager.literal;

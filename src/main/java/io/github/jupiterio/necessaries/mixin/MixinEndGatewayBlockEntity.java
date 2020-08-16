@@ -4,6 +4,7 @@ import net.minecraft.block.entity.EndGatewayBlockEntity;
 import net.minecraft.block.entity.EndPortalBlockEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.world.World;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.nbt.CompoundTag;
@@ -12,7 +13,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.entity.mob.MobEntityWithAi;
 import net.minecraft.world.BlockView;
 import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
 
@@ -125,8 +125,8 @@ public class MixinEndGatewayBlockEntity extends EndPortalBlockEntity {
 
             player.teleport(world, x, y, z, player.yaw, player.pitch);
          } else {
-            if (target instanceof MobEntityWithAi) {
-                ((MobEntityWithAi)target).getNavigation().stop();
+            if (target instanceof PathAwareEntity) {
+                ((PathAwareEntity)target).getNavigation().stop();
             }
 
             if (world == target.world) {

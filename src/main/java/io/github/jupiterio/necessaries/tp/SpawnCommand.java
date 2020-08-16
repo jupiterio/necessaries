@@ -6,7 +6,6 @@ import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.command.arguments.EntityArgumentType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import java.util.UUID;
 import io.github.jupiterio.necessaries.builder.TextBuilder;
