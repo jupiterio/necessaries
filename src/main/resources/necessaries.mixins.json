@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.jupiterio.necessaries.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinItemStack",
+    "MixinEndGatewayBlockEntity"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

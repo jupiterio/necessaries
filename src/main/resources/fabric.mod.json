@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "necessaries",
+  "version": "${version}",
+
+  "name": "Necessaries",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "jupiterio"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/necessaries/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.jupiterio.necessaries.NecessariesMod"
+    ],
+    "cardinal-components-chunk": [
+      "io.github.jupiterio.necessaries.ComponentManager"
+    ],
+    "cardinal-components-level": [
+      "io.github.jupiterio.necessaries.ComponentManager"
+    ],
+    "cardinal-components-entity": [
+      "io.github.jupiterio.necessaries.ComponentManager"
+    ]
+  },
+  "mixins": [
+    "necessaries.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
