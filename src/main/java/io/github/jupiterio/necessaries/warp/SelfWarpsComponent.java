@@ -1,6 +1,6 @@
 package io.github.jupiterio.necessaries.warp;
 
-import nerdhub.cardinal.components.api.component.Component;
+import dev.onyxstudios.cca.api.v3.component.Component;
 import net.minecraft.text.Text;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;

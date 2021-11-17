@@ -11,7 +11,7 @@ import java.util.Iterator;
 import net.minecraft.server.world.ServerWorld;
 import java.util.function.Function;
 import java.util.function.BiConsumer;
-import io.github.jupiterio.necessaries.builder.TextBuilder;
+import io.github.jupiterio.volcanolib.text.TextBuilder;
 
 public class TeleportManager {
     private static List<TpaRequest> pending = Lists.newArrayList();
@@ -113,9 +113,9 @@ public class TeleportManager {
 
         public void execute() {
             if (this.type == TeleportType.GO) {
-                this.from.teleport((ServerWorld)this.to.world, this.to.getX(), this.to.getY(), this.to.getZ(), this.to.yaw, this.to.pitch);
+                this.from.teleport((ServerWorld)this.to.world, this.to.getX(), this.to.getY(), this.to.getZ(), this.to.getYaw(), this.to.getPitch());
             } else {
-                this.to.teleport((ServerWorld)this.from.world, this.from.getX(), this.from.getY(), this.from.getZ(), this.from.yaw, this.from.pitch);
+                this.to.teleport((ServerWorld)this.from.world, this.from.getX(), this.from.getY(), this.from.getZ(), this.from.getYaw(), this.from.getPitch());
             }
             this.stop();
         }

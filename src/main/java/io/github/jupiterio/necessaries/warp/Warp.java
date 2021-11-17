@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.Identifier;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 
 public class Warp {
@@ -45,14 +45,14 @@ public class Warp {
         return this.direction;
     }
 
-    public void fromTag(CompoundTag tag) {
+    public void fromTag(NbtCompound tag) {
         this.name = Text.Serializer.fromJson(tag.getString("Name"));
-        this.dimension = RegistryKey.of(Registry.DIMENSION, new Identifier(tag.getString("Dimension")));
+        this.dimension = RegistryKey.of(Registry.WORLD_KEY, new Identifier(tag.getString("Dimension")));
         this.pos = NbtHelper.toBlockPos(tag.getCompound("Pos"));
         this.direction = Direction.fromRotation(tag.getFloat("Rotation"));
     }
 
-    public CompoundTag toTag(CompoundTag tag) {
+    public NbtCompound toTag(NbtCompound tag) {
         tag.putString("Name", Text.Serializer.toJson(this.name));
         tag.putString("Dimension", this.dimension.getValue().toString());
         tag.put("Pos", NbtHelper.fromBlockPos(this.pos));

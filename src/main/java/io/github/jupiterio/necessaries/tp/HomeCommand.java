@@ -8,7 +8,7 @@ import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.server.network.ServerPlayerEntity;
 import java.util.UUID;
-import io.github.jupiterio.necessaries.builder.TextBuilder;
+import io.github.jupiterio.volcanolib.text.TextBuilder;
 import io.github.jupiterio.necessaries.ComponentManager;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
@@ -18,7 +18,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.server.world.ServerWorld;
 import io.github.jupiterio.necessaries.warp.SelfWarpsComponent;
 import io.github.jupiterio.necessaries.warp.Warp;
-import io.github.jupiterio.necessaries.builder.TextBuilder;
 
 import static net.minecraft.server.command.CommandManager.literal;
 import static net.minecraft.server.command.CommandManager.argument;

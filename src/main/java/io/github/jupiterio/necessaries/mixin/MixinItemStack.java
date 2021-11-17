@@ -8,16 +8,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.OnAStickItem;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
 import io.github.jupiterio.necessaries.claim.ClaimManager;
-import io.github.jupiterio.necessaries.builder.Condenser;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,7 +32,7 @@ public class MixinItemStack {
 
         ItemStack stack = (ItemStack) (Object) this;
         if (stack.getItem() == Items.PAPER) {
-            CompoundTag tag = stack.getTag();
+            NbtCompound tag = stack.getTag();
 
             if (tag != null && tag.contains("CustomModelData", 3)) {
 
@@ -64,7 +63,7 @@ public class MixinItemStack {
         }
 
         if (stack.getItem() == Items.QUARTZ) {
-            CompoundTag tag = stack.getTag();
+            NbtCompound tag = stack.getTag();
 
             if (tag != null && tag.contains("CustomModelData", 3)) {
 
@@ -72,10 +71,6 @@ public class MixinItemStack {
 
                 if (modelData == 1) { // POCKET DIMENSION
                     // implement
-                } else if (modelData == 2) { // CONDENSER
-                    Condenser.condenseAll(player.inventory);
-
-                    cir.setReturnValue(TypedActionResult.success(stack));
                 } else {
                     cir.setReturnValue(TypedActionResult.pass(stack));
                 }

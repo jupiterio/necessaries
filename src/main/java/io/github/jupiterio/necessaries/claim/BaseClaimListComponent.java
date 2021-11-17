@@ -3,8 +3,8 @@ package io.github.jupiterio.necessaries.claim;
 import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Iterator;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.text.Text;
 import java.util.UUID;
 
@@ -37,10 +37,10 @@ public class BaseClaimListComponent implements ClaimListComponent {
     }
 
     @Override
-    public void fromTag(CompoundTag tag) {
+    public void readFromNbt(NbtCompound tag) {
         claims.clear();
 
-        ListTag claimList = tag.getList("Claims", 10);
+        NbtList claimList = tag.getList("Claims", 10);
         int claimsCount = claimList.size();
 
         for(int i = 0; i < claimsCount; ++i) {
@@ -51,17 +51,15 @@ public class BaseClaimListComponent implements ClaimListComponent {
     }
 
     @Override
-    public CompoundTag toTag(CompoundTag tag) {
+    public void writeToNbt(NbtCompound tag) {
         Iterator claimsIter = claims.iterator();
-        ListTag claimList = new ListTag();
+        NbtList claimList = new NbtList();
 
         while(claimsIter.hasNext()) {
             Claim claim = (Claim) claimsIter.next();
-            claimList.add(claim.toTag(new CompoundTag()));
+            claimList.add(claim.toTag(new NbtCompound()));
         }
 
         tag.put("Claims", claimList);
-
-        return tag;
     }
 }

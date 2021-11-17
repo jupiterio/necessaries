@@ -1,6 +1,6 @@
 package io.github.jupiterio.necessaries.claim;
 
-import nerdhub.cardinal.components.api.component.Component;
+import dev.onyxstudios.cca.api.v3.component.Component;
 
 public interface ClaimComponent extends Component {
     int getId();

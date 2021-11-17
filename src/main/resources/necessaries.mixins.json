@@ -4,8 +4,7 @@
   "package": "io.github.jupiterio.necessaries.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MixinItemStack",
-    "MixinEndGatewayBlockEntity"
+    "MixinItemStack"
   ],
   "client": [
   ],

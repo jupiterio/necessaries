@@ -1,11 +1,9 @@
 package io.github.jupiterio.necessaries.claim;
 
 import io.github.jupiterio.necessaries.ComponentManager;
-import nerdhub.cardinal.components.api.ComponentType;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.WorldChunk;
-import nerdhub.cardinal.components.api.util.ChunkComponent;
 import java.util.List;
 
 public class BaseClaimComponent implements ClaimComponent {
@@ -23,13 +21,12 @@ public class BaseClaimComponent implements ClaimComponent {
     }
 
     @Override
-    public void fromTag(CompoundTag tag) {
+    public void readFromNbt(NbtCompound tag) {
         this.id = tag.getInt("id");
     }
 
     @Override
-    public CompoundTag toTag(CompoundTag tag) {
+    public void writeToNbt(NbtCompound tag) {
         tag.putInt("id", this.id);
-        return tag;
     }
 }

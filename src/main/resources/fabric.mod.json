@@ -21,16 +21,20 @@
     "main": [
       "io.github.jupiterio.necessaries.NecessariesMod"
     ],
-    "cardinal-components-chunk": [
-      "io.github.jupiterio.necessaries.ComponentManager"
-    ],
-    "cardinal-components-level": [
-      "io.github.jupiterio.necessaries.ComponentManager"
-    ],
-    "cardinal-components-entity": [
+    "cardinal-components": [
       "io.github.jupiterio.necessaries.ComponentManager"
     ]
   },
+
+  "custom": {
+    "cardinal-components": [
+      "necessaries:claim_list",
+      "necessaries:claim",
+      "necessaries:warp_list",
+      "necessaries:self_warps"
+    ]
+  },
+  
   "mixins": [
     "necessaries.mixins.json"
   ],
@@ -38,7 +42,7 @@
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": "1.16.x"
+    "minecraft": "1.17.x"
   },
   "suggests": {
     "flamingo": "*"

@@ -1,12 +1,12 @@
 package io.github.jupiterio.necessaries.warp;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.Text;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.NbtCompound;
 
 public class BaseSelfWarpsComponent implements SelfWarpsComponent {
     protected Warp homeWarp;
@@ -44,7 +44,7 @@ public class BaseSelfWarpsComponent implements SelfWarpsComponent {
     }
 
     @Override
-    public void fromTag(CompoundTag tag) {
+    public void readFromNbt(NbtCompound tag) {
         this.homeWarp = null;
         if (tag.contains("Home", 10)) {
             Warp homeWarp = new Warp();
@@ -54,10 +54,9 @@ public class BaseSelfWarpsComponent implements SelfWarpsComponent {
     }
 
     @Override
-    public CompoundTag toTag(CompoundTag tag) {
+    public void writeToNbt(NbtCompound tag) {
         if (this.homeWarp != null) {
-            tag.put("Home", this.homeWarp.toTag(new CompoundTag()));
+            tag.put("Home", this.homeWarp.toTag(new NbtCompound()));
         }
-        return tag;
     }
 }

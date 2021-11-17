@@ -10,7 +10,7 @@ import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.server.network.ServerPlayerEntity;
 import java.util.UUID;
-import io.github.jupiterio.necessaries.builder.TextBuilder;
+import io.github.jupiterio.volcanolib.text.TextBuilder;
 import io.github.jupiterio.necessaries.tp.TeleportManager.TeleportType;
 import net.minecraft.text.TranslatableText;
 
@@ -60,7 +60,7 @@ public class TpaCommand {
                 from.sendSystemMessage(TextBuilder.builder()
                     .translate("pcd.tp.go", to.getDisplayName())
                     .yellow()
-                    .literal(" ")
+                    .text(" ")
                     .translate("pcd.tp.button.cancel")
                     .red()
                     .command("/tpa cancel")
@@ -69,11 +69,11 @@ public class TpaCommand {
                 to.sendSystemMessage(TextBuilder.builder()
                     .translate("pcd.tp.go.other", from.getDisplayName())
                     .gold()
-                    .literal(" ")
+                    .text(" ")
                     .translate("pcd.tp.button.accept")
                     .aqua()
                     .command("/tpa accept " + from.getName().asString())
-                    .literal(" ")
+                    .text(" ")
                     .translate("pcd.tp.button.reject")
                     .aqua()
                     .command("/tpa reject " + from.getName().asString())
@@ -82,7 +82,7 @@ public class TpaCommand {
                 from.sendSystemMessage(TextBuilder.builder()
                     .translate("pcd.tp.bring", to.getDisplayName())
                     .yellow()
-                    .literal(" ")
+                    .text(" ")
                     .translate("pcd.tp.button.cancel")
                     .red()
                     .command("/tpa cancel")
@@ -91,11 +91,11 @@ public class TpaCommand {
                 to.sendSystemMessage(TextBuilder.builder()
                     .translate("pcd.tp.bring.other", from.getDisplayName())
                     .lightPurple()
-                    .literal(" ")
+                    .text(" ")
                     .translate("pcd.tp.button.accept")
                     .aqua()
                     .command("/tpa accept " + from.getName().asString())
-                    .literal(" ")
+                    .text(" ")
                     .translate("pcd.tp.button.reject")
                     .aqua()
                     .command("/tpa reject " + from.getName().asString())

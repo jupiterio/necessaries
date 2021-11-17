@@ -9,11 +9,12 @@ import java.util.Iterator;
 import java.util.UUID;
 import net.minecraft.text.Text;
 import net.minecraft.text.LiteralText;
-import nerdhub.cardinal.components.api.component.ComponentProvider;
+import dev.onyxstudios.cca.api.v3.component.ComponentProvider;
 import net.minecraft.network.packet.s2c.play.TitleS2CPacket;
+import net.minecraft.network.packet.s2c.play.SubtitleS2CPacket;
 import net.minecraft.world.WorldProperties;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 import net.minecraft.entity.player.PlayerEntity;
 
@@ -34,8 +35,8 @@ public class ClaimManager {
                 if (chunkClaim.getId() != playerClaim.getId()) {
                     Claim chunkClaimData = chunkClaim.getClaimData();
                     playerClaim.setId(chunkClaim.getId());
-                    player.networkHandler.sendPacket(new TitleS2CPacket(TitleS2CPacket.Action.SUBTITLE, chunkClaimData.getName()));
-                    player.networkHandler.sendPacket(new TitleS2CPacket(TitleS2CPacket.Action.TITLE, new LiteralText(" ")));
+                    player.networkHandler.sendPacket(new SubtitleS2CPacket(chunkClaimData.getName()));
+                    player.networkHandler.sendPacket(new TitleS2CPacket(new LiteralText(" ")));
                 }
             }
         });
@@ -50,7 +51,7 @@ public class ClaimManager {
 
         if (chunkClaim.getId() == 0) {
             System.out.println("We're in wilderness");
-            CompoundTag tag = stack.getTag();
+            NbtCompound tag = stack.getTag();
             if (tag != null && tag.contains("ClaimId", 3)) {
                 System.out.println("We have an int ClaimId");
                 int id = tag.getInt("ClaimId");

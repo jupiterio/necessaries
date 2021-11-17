@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.List;
 import java.util.Iterator;
-import io.github.jupiterio.necessaries.builder.TextBuilder;
+import io.github.jupiterio.volcanolib.text.TextBuilder;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.text.Text;
 import io.github.jupiterio.necessaries.warp.WarpListComponent;
@@ -25,8 +25,8 @@ import net.minecraft.util.math.Direction;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import net.minecraft.command.CommandSource;
 import net.minecraft.command.argument.TextArgumentType;
-import net.minecraft.server.command.CommandSource;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
 
 import static net.minecraft.server.command.CommandManager.literal;
@@ -108,15 +108,15 @@ public class WarpCommand {
             .translate("pcd.warps.home")
             .aqua()
             .command("/home")
-            .literal(" (")
+            .text(" (")
             .translate("pcd.warps.home.set")
             .aqua()
             .command("/home set")
-            .literal(") (")
+            .text(") (")
             .translate("pcd.warps.home.clear")
             .aqua()
             .command("/home clear")
-            .literal(")")
+            .text(")")
             .build(), player.getUuid());
 
         player.sendSystemMessage(TextBuilder.builder()
@@ -129,7 +129,7 @@ public class WarpCommand {
         Iterator playersIter = players.iterator();
 
         if (players.size() > 1) player.sendSystemMessage(TextBuilder.builder()
-            .literal("----")
+            .text("----")
             .bold()
             .build(), player.getUuid());
 
@@ -141,11 +141,11 @@ public class WarpCommand {
                     .translate("pcd.tp.button.go")
                     .green()
                     .command("/tpa go " + other.getName().asString())
-                    .literal(" ")
+                    .text(" ")
                     .translate("pcd.tp.button.bring")
                     .green()
                     .command("/tpa bring " + other.getName().asString())
-                    .literal(" - ")
+                    .text(" - ")
                     .text(other.getDisplayName())
                     .build(), player.getUuid());
             }

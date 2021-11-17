@@ -1,8 +1,6 @@
 package io.github.jupiterio.necessaries.claim;
 
 import io.github.jupiterio.necessaries.ComponentManager;
-import nerdhub.cardinal.components.api.ComponentType;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.WorldChunk;
 import dev.onyxstudios.cca.api.v3.entity.PlayerComponent;
@@ -28,17 +26,12 @@ public class PlayerClaimComponent extends BaseClaimComponent implements PlayerCo
     }
 
     @Override
-    public ComponentType<ClaimComponent> getComponentType() {
-        return (ComponentType<ClaimComponent>) ComponentManager.CLAIM;
-    }
-
-    @Override
-    public boolean shouldCopyForRespawn(boolean lossless, boolean keepInventory) {
+    public boolean shouldCopyForRespawn(boolean lossless, boolean keepInventory, boolean switchingCharacter) {
         return true;
     }
 
     @Override
-    public void copyForRespawn(BaseClaimComponent original, boolean lossless, boolean keepInventory) {
-        PlayerComponent.super.copyForRespawn(original, lossless, keepInventory);
+    public void copyForRespawn(BaseClaimComponent original, boolean lossless, boolean keepInventory, boolean switchingCharacter) {
+        PlayerComponent.super.copyForRespawn(original, lossless, keepInventory, switchingCharacter);
     }
 }

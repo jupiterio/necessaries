@@ -1,14 +1,11 @@
 package io.github.jupiterio.necessaries.claim;
 
 import io.github.jupiterio.necessaries.ComponentManager;
-import nerdhub.cardinal.components.api.ComponentType;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.WorldChunk;
-import nerdhub.cardinal.components.api.util.ChunkComponent;
 import java.util.List;
 
-public class ChunkClaimComponent extends BaseClaimComponent implements ChunkComponent<BaseClaimComponent> {
+public class ChunkClaimComponent extends BaseClaimComponent {
     private final Chunk chunk;
 
     public ChunkClaimComponent(Chunk chunk) {
@@ -26,11 +23,6 @@ public class ChunkClaimComponent extends BaseClaimComponent implements ChunkComp
         } else {
             return Claim.UNKNOWN;
         }
-    }
-
-    @Override
-    public ComponentType<ClaimComponent> getComponentType() {
-        return (ComponentType<ClaimComponent>) ComponentManager.CLAIM;
     }
 
     public Chunk getChunk() {
